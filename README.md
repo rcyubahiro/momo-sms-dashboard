@@ -6,7 +6,7 @@
   - Diane INGABIRE – GitHub: [@ingdia](https://github.com/ingdia)  
   - Innocent Nkurunziza – GitHub: [@innocent-gift](https://github.com/innocent-gift)  
   - Robert Cyubahiro – GitHub: [@rcyubahiro](https://github.com/rcyubahiro)  
-  - Steven Kayitare – GitHub: [@username](https://github.com/username
+  - Steven Kayitare – GitHub: [@username](https://github.com/stevenalu
 ---
 
 ## Project Description  
