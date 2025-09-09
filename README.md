@@ -21,11 +21,16 @@ This project demonstrates backend data processing, database management, and fron
 
 ## Project System Architecture  
 [View Architecture Diagram](https://drive.google.com/file/d/1Lt3Uqu4GE6lg4vb1-AVCBusow0qvaAYg/view)  
+<img width="355" height="531" alt="image" src="https://github.com/user-attachments/assets/dc057377-3c4b-4369-8035-27b6d93d2711" />
+
+
 
 ---
 
 ## Task Allocation  
-[View Scrum Board on Trello](https://trello.com/invite/b/68bef5f1b5401a6a7143db5a/ATTI2a337ad2404e8b57a6df4bd9f3050eb9E17A53C5/agile-board-template-trello)  
+[View Scrum Board on Trello](https://trello.com/invite/b/68bef5f1b5401a6a7143db5a/ATTI2a337ad2404e8b57a6df4bd9f3050eb9E17A53C5/agile-board-template-trello) 
+<img width="1039" height="652" alt="image" src="https://github.com/user-attachments/assets/0a821eb9-b5be-423c-8f3b-d41e3955b236" />
+
 
 ##  Project Structure 
 
