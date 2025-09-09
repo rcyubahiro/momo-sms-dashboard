@@ -19,7 +19,13 @@ This project is an **enterprise-level fullstack application** designed to proces
 
 This project demonstrates backend data processing, database management, and frontend visualization skills.
 
+## Project System Architecture  
+[View Architecture Diagram](https://drive.google.com/file/d/1Lt3Uqu4GE6lg4vb1-AVCBusow0qvaAYg/view)  
+
 ---
+
+## Task Allocation  
+[View Scrum Board on Trello](https://trello.com/invite/b/68bef5f1b5401a6a7143db5a/ATTI2a337ad2404e8b57a6df4bd9f3050eb9E17A53C5/agile-board-template-trello)  
 
 ##  Project Structure 
 
