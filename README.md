@@ -21,7 +21,7 @@ This project demonstrates backend data processing, database management, and fron
 
 ---
 
-## 🗂 Project Structure 
+##  Project Structure 
 
 ```bash
 .
