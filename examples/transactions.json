@@ -1,0 +1,62 @@
+[
+  {
+    "transaction_id": 1,
+    "sender_id": 1,
+    "receiver_id": 2,
+    "category_id": 2,
+    "TxId": "76662021700",
+    "amount": 2000.0,
+    "fee": 0.0,
+    "balance": 2000.0,
+    "time": "2024-05-10T16:30:51Z",
+    "sms_body": "You have received 2000 RWF..."
+  },
+  {
+    "transaction_id": 2,
+    "sender_id": 1,
+    "receiver_id": 2,
+    "category_id": 2,
+    "TxId": "73214484437",
+    "amount": 1000.0,
+    "fee": 0.0,
+    "balance": 1000.0,
+    "time": "2024-05-10T16:31:39Z",
+    "sms_body": "Your payment of 1,000 RWF..."
+  },
+  {
+    "transaction_id": 3,
+    "sender_id": 1,
+    "receiver_id": 2,
+    "category_id": 2,
+    "TxId": "51732411227",
+    "amount": 600.0,
+    "fee": 0.0,
+    "balance": 400.0,
+    "time": "2024-05-10T21:32:32Z",
+    "sms_body": "Your payment of 600 RWF..."
+  },
+  {
+    "transaction_id": 4,
+    "sender_id": 4,
+    "receiver_id": 1,
+    "category_id": 1,
+    "TxId": "17818959211",
+    "amount": 40000.0,
+    "fee": 0.0,
+    "balance": 40400.0,
+    "time": "2024-05-11T18:43:49Z",
+    "sms_body": "A bank deposit of 40000 RWF..."
+  },
+  {
+    "transaction_id": 5,
+    "sender_id": 1,
+    "receiver_id": 3,
+    "category_id": 3,
+    "TxId": "82113964658",
+    "amount": 3500.0,
+    "fee": 0.0,
+    "balance": 10880.0,
+    "time": "2024-05-12T13:34:25Z",
+    "sms_body": "Your payment of 3,500 RWF..."
+  }
+]
