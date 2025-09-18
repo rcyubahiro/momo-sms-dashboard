@@ -1,0 +1,121 @@
+{
+  "schemas": {
+    "User": {
+      "id": "integer",
+      "name": "string",
+      "phone_number": "string or null",
+      "created_at": "datetime"
+    },
+    "Transaction_Category": {
+      "category_id": "integer",
+      "name": "string",
+      "description": "string"
+    },
+    "Transaction": {
+      "transaction_id": "integer",
+      "sender_id": "integer (FK to User)",
+      "receiver_id": "integer (FK to User or null)",
+      "category_id": "integer (FK to Transaction_Category)",
+      "TxId": "string",
+      "amount": "decimal",
+      "fee": "decimal",
+      "balance": "decimal",
+      "time": "datetime",
+      "sms_body": "string"
+    },
+    "Transaction_User": {
+      "transaction_id": "integer (FK to Transaction)",
+      "user_id": "integer (FK to User)",
+      "role": "string (sender/receiver/agent)"
+    },
+    "System_Log": {
+      "log_id": "integer",
+      "transaction_id": "integer (FK to Transaction)",
+      "log_type": "string (info/error/warning)",
+      "message": "string",
+      "created_at": "datetime"
+    }
+  },
+  "examples": {
+    "User": {
+      "id": 1,
+      "name": "Steven Kayitare",
+      "phone_number": "250791233547",
+      "created_at": "2024-05-10T16:30:51Z"
+    },
+    "Transaction_Category": {
+      "category_id": 2,
+      "name": "Payment",
+      "description": "Payment made to merchant"
+    },
+    "Transaction": {
+      "transaction_id": 1,
+      "sender_id": 1,
+      "receiver_id": 2,
+      "category_id": 2,
+      "TxId": "76662021700",
+      "amount": 2000.00,
+      "fee": 0.00,
+      "balance": 2000.00,
+      "time": "2024-05-10T16:30:51Z",
+      "sms_body": "You have received 2000 RWF..."
+    },
+    "Transaction_User": {
+      "transaction_id": 1,
+      "user_id": 1,
+      "role": "sender"
+    },
+    "System_Log": {
+      "log_id": 1,
+      "transaction_id": 1,
+      "log_type": "info",
+      "message": "Transaction processed successfully",
+      "created_at": "2024-05-10T16:30:55Z"
+    },
+    "Complex_Transaction": {
+      "transaction_id": 1,
+      "TxId": "76662021700",
+      "amount": 2000.00,
+      "fee": 0.00,
+      "balance": 2000.00,
+      "time": "2024-05-10T16:30:51Z",
+      "sms_body": "You have received 2000 RWF...",
+      "category": {
+        "category_id": 2,
+        "name": "Payment",
+        "description": "Payment made to merchant"
+      },
+      "users": [
+        {
+          "id": 1,
+          "name": "Steven Kayitare",
+          "phone_number": "250791233547",
+          "role": "sender"
+        },
+        {
+          "id": 2,
+          "name": "Ishimwe Diane",
+          "phone_number": "250790777734",
+          "role": "receiver"
+        }
+      ],
+      "logs": [
+        {
+          "log_id": 1,
+          "log_type": "info",
+          "message": "Transaction processed successfully",
+          "created_at": "2024-05-10T16:30:55Z"
+        }
+      ]
+    }
+  },
+  "mapping": {
+    "User table": "→ User JSON",
+    "Transaction_Categories table": "→ Transaction_Category JSON",
+    "Transactions table": "→ Transaction JSON",
+    "Transaction_Users table": "→ Transaction_User JSON",
+    "System_Logs table": "→ System_Log JSON",
+    "Joined/nested SQL query across multiple tables": "→ Complex_Transaction JSON"
+  }
+}
+
