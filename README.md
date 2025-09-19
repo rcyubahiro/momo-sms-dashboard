@@ -72,28 +72,163 @@ This project demonstrates backend data processing, database management, and fron
 └── Examples
       └── json_schemas.json
 
-## Database Design and Implementation
 
-## Repository Structure
-docs/erd_diagram.png # ERD diagram
-database/database_setup.sql # MySQL DDL + DML script
+# MoMo SMS Data Processing System
+
+## 📌 Overview
+This project implements the **database foundation** for processing MoMo SMS transaction data.  
+It is designed to support data ingestion, storage, querying, and analysis of different types of mobile money transactions, while ensuring data integrity, security, and scalability.
+
+---
+
+## 📂 Repository Structure
+docs/erd_diagram.png # ERD diagram (exported from draw.io / Lucidchart)
+database/database_setup.sql # MySQL schema with sample data
 examples/json_schemas.json # JSON serialization examples
-## Database Design
+README.md # Database documentation (this file)
 
-The schema models:
-- **Users** (senders & receivers)  
-- **Transactions** (main fact table with FK to users)  
-- **Transaction Categories** (taxonomy of transaction types)  
-- **Transaction ↔ Categories mapping** (junction table for M: N)  
-- **System Logs** (data processing pipeline logs)
+---
 
-### ERD
+## 🗂️ Entity Relationship Diagram (ERD)
+The database schema includes five main entities:
+
+- **Users** – stores customer, merchant, and agent information  
+- **Transactions** – central fact table for all MoMo operations  
+- **Transaction Categories** – taxonomy of transaction types (e.g., P2P, Bill Payment)  
+- **Transaction ↔ Categories Mapping** – junction table resolving many-to-many relation  
+- **System Logs** – operational logging for data processing pipeline  
+
 ![ERD Diagram](docs/erd_diagram.png)
 
 ---
 
-## How to Run
-1. Create the DB:
-   ```bash
-   mysql -u root -p < database/database_setup.sql
+## 🛠️ Database Design Rationale
+The schema models MoMo mobile-money SMS transaction data with clear separation of concerns for flexibility and analytics.  
 
+- The **Users table** stores sender/receiver profiles so individuals can appear in multiple transactions without duplication.  
+- **Transactions** is the central fact table, capturing amounts, references, timestamps, and links to users.  
+- **Transaction Categories** provides a taxonomy for transaction types, while a junction table (`transaction_category_map`) resolves the many-to-many relationship between transactions and categories.  
+- **System Logs** track data processing events and provide traceability.  
+
+Referential integrity is enforced through foreign keys, with indexes for frequent queries.  
+Constraints such as non-negative amounts and restricted statuses improve data quality.  
+The design balances normalization for consistency with performance needs, supporting both analytics and operational workflows.  
+
+---
+
+## 📑 Data Dictionary (Summary)
+
+| Table                     | Column              | Type            | Description                                               |
+|----------------------------|---------------------|-----------------|-----------------------------------------------------------|
+| **users**                 | user_id             | INT (PK)        | Unique user identifier                                    |
+|                            | full_name           | VARCHAR(150)    | Full name of the user                                     |
+|                            | phone               | VARCHAR(20)     | Unique phone number in E.164 format                       |
+|                            | email               | VARCHAR(255)    | Optional email address                                    |
+|                            | is_kyc_done         | TINYINT(1)      | 1 if KYC completed                                        |
+|                            | user_role           | ENUM            | Role: customer, merchant, agent, system                   |
+| **transactions**          | transaction_id      | BIGINT (PK)     | Internal transaction identifier                           |
+|                            | momo_reference      | VARCHAR(100)    | Provider transaction reference                            |
+|                            | amount              | DECIMAL(13,2)   | Transaction amount (>= 0)                                 |
+|                            | currency            | CHAR(3)         | ISO currency code (e.g., RWF)                             |
+|                            | occurred_at         | DATETIME        | Time the transaction occurred                             |
+|                            | sender_id           | INT (FK)        | FK → users (sender)                                       |
+|                            | receiver_id         | INT (FK)        | FK → users (receiver)                                     |
+|                            | direction           | ENUM            | Transaction direction: IN/OUT                             |
+|                            | status              | ENUM            | Transaction status: PENDING, COMPLETED, FAILED, REVERSED  |
+|                            | raw_payload         | JSON            | Original SMS/XML payload for audit                        |
+| **transaction_categories**| category_id         | INT (PK)        | Unique category identifier                                |
+|                            | code                | VARCHAR(50)     | Short category code (e.g., P2P, BILL)                     |
+|                            | name                | VARCHAR(120)    | Human-readable category name                              |
+| **transaction_category_map** | map_id            | INT (PK)        | Junction table PK                                         |
+|                            | transaction_id      | BIGINT (FK)     | FK → transactions                                         |
+|                            | category_id         | INT (FK)        | FK → transaction_categories                               |
+| **system_logs**           | log_id              | BIGINT (PK)     | Unique log identifier                                     |
+|                            | processing_stage    | VARCHAR(80)     | Stage of data pipeline (ingest, parse, reconcile, etc.)   |
+|                            | severity            | ENUM            | Log severity: DEBUG, INFO, WARN, ERROR                    |
+|                            | message             | TEXT            | Log message details                                       |
+|                            | transaction_id      | BIGINT (FK)     | Optional FK to related transaction                        |
+|                            | meta                | JSON            | Structured metadata                                       |
+
+---
+
+## ⚙️ How to Run Locally
+1. Clone this repo:
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo>.git
+   cd <your-repo>
+Start MySQL and create the database:
+
+bash
+Copy code
+mysql -u root -p < database/database_setup.sql
+Verify tables:
+
+sql
+Copy code
+USE momoprocessing;
+SHOW TABLES;
+📦 JSON Examples
+All entity examples are in
+examples/json_schemas.json.
+
+They include:
+
+User JSON
+
+Transaction Category JSON
+
+Transaction JSON
+
+Full Transaction JSON (with sender, receiver, categories)
+
+✅ Sample Queries
+Get completed transactions
+
+sql
+Copy code
+SELECT transaction_id, momo_reference, amount, status
+FROM transactions
+WHERE status='COMPLETED';
+Join transactions with users
+
+sql
+Copy code
+SELECT t.transaction_id, u1.full_name AS sender, u2.full_name AS receiver, t.amount
+FROM transactions t
+LEFT JOIN users u1 ON t.sender_id = u1.user_id
+LEFT JOIN users u2 ON t.receiver_id = u2.user_id;
+Get categories per transaction
+
+sql
+Copy code
+SELECT t.transaction_id, GROUP_CONCAT(c.name) AS categories
+FROM transactions t
+JOIN transaction_category_map m ON t.transaction_id = m.transaction_id
+JOIN transaction_categories c ON m.category_id = c.category_id
+GROUP BY t.transaction_id;
+👥 Team Collaboration
+All commits are tracked via GitHub
+
+ERD exported to /docs
+
+SQL scripts stored in /database
+
+JSON examples stored in /examples
+
+Scrum board updated weekly for sprint tracking
+
+🤖 AI Usage Policy
+✅ AI used for grammar, formatting, and syntax verification
+
+❌ AI not used for logic, schema design, or reflection writing
+
+AI interactions logged in AI_USAGE_LOG.md
+
+📌 Deliverables
+ERD Diagram in 
+
+SQL Setup Script: database/database_setup.sql
+
+JSON Examples: docs/erd_diagram.pdf
+
+Database Design Document (integrated here in README)
