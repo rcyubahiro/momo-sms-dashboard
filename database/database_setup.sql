@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS momo_sms;
+USE momo_sms;
