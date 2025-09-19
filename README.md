@@ -10,7 +10,7 @@
 ---
 
 ## Project Description  
-This project is an **enterprise-level fullstack application** designed to process and analyze **MoMo SMS transaction data**. The workflow includes:
+This project is an **enterprise-level full-stack application** designed to process and analyze **MoMo SMS transaction data**. The workflow includes:
 
 1. **Data Ingestion** – Extract raw XML SMS data.  
 2. **ETL Pipeline** – Parse, clean, normalize, and categorize transactions.  
@@ -148,14 +148,14 @@ The design balances normalization for consistency with performance needs, suppor
 |                            | message             | TEXT            | Log message details                                       |
 |                            | transaction_id      | BIGINT (FK)     | Optional FK to related transaction                        |
 |                            | meta                | JSON            | Structured metadata                                       |
-
----
+|                            |                     |                 |                                                           |
+------------------------------------------------------------------------------------------------------------------------------------
 
 ## ⚙️ How to Run Locally
 1. Clone this repo:
    ```bash
-   git clone https://github.com/<your-username>/<your-repo>.git
-   cd <your-repo>
+   git clone https://github.com/rcyubahiro/momo-sms-dashboard.git
+   cd momo-sms-dashboard
 Start MySQL and create the database:
 
 bash
@@ -163,8 +163,6 @@ Copy code
 mysql -u root -p < database/database_setup.sql
 Verify tables:
 
-sql
-Copy code
 USE momoprocessing;
 SHOW TABLES;
 📦 JSON Examples
@@ -184,23 +182,20 @@ Full Transaction JSON (with sender, receiver, categories)
 ✅ Sample Queries
 Get completed transactions
 
-sql
-Copy code
+
 SELECT transaction_id, momo_reference, amount, status
 FROM transactions
 WHERE status='COMPLETED';
 Join transactions with users
 
-sql
-Copy code
+
 SELECT t.transaction_id, u1.full_name AS sender, u2.full_name AS receiver, t.amount
 FROM transactions t
 LEFT JOIN users u1 ON t.sender_id = u1.user_id
 LEFT JOIN users u2 ON t.receiver_id = u2.user_id;
 Get categories per transaction
 
-sql
-Copy code
+
 SELECT t.transaction_id, GROUP_CONCAT(c.name) AS categories
 FROM transactions t
 JOIN transaction_category_map m ON t.transaction_id = m.transaction_id
@@ -225,10 +220,10 @@ Scrum board updated weekly for sprint tracking
 AI interactions logged in AI_USAGE_LOG.md
 
 📌 Deliverables
-ERD Diagram in 
+ERD Diagram in  docs/erd_diagram.pdf
 
 SQL Setup Script: database/database_setup.sql
 
-JSON Examples: docs/erd_diagram.pdf
+JSON Examples: examples/json_schemas.json
 
 Database Design Document (integrated here in README)
