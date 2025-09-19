@@ -68,29 +68,14 @@ This project demonstrates backend data processing, database management, and fron
     ├── test_clean_normalize.py
     └── test_categorize.py
 
-## Database Design
-The schema models:
-- **Users** (senders & receivers)  
-- **Transactions** (main fact table with FK to users)  
-- **Transaction Categories** (taxonomy of transaction types)  
-- **Transaction ↔ Categories mapping** (junction table for M: N)  
-- **System Logs** (data processing pipeline logs)
-
-### ERD
-![ERD Diagram](docs/erd_diagram.png)
-
----
-
-## How to Run
-1. Create the DB:
-   ```bash
-   mysql -u root -p < database/database_setup.sql
+## Database Design and Implementation
 
 ## Repository Structure
 docs/erd_diagram.png # ERD diagram
 database/database_setup.sql # MySQL DDL + DML script
 examples/json_schemas.json # JSON serialization examples
 ## Database Design
+
 The schema models:
 - **Users** (senders & receivers)  
 - **Transactions** (main fact table with FK to users)  
