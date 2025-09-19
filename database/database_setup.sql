@@ -102,3 +102,19 @@ INSERT INTO System_Logs (transaction_id, log_type, message) VALUES
 (4, 'info', 'Deposit recorded'),
 (5, 'error', 'Delayed confirmation message');
 
+-- ==============================================================
+-- TESTING SOME CRUD (Create, Read/Select, Update, Delete) 
+-- ==============================================================
+
+-- Show all records from transactions table
+SELECT * FROM transactions;
+
+-- Update: adjust in table "user" name
+UPDATE User SET name = 'Steven Kayitare' WHERE id = 1;
+
+-- Delete: remove a log from "system_Logs"
+DELETE FROM System_Logs WHERE log_id = 5;
+
+-- Create: insert a new transfer
+INSERT INTO Transactions (sender_id, receiver_id, category_id, TxId, amount, fee, balance, time, sms_body)
+VALUES (2, 1, 3, '99999995454', 500.00, 10.00, 950.00, NOW(), 'Transfer from Eliana Anick to Janick Andy');
