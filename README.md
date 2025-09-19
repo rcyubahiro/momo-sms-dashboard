@@ -64,9 +64,13 @@ This project demonstrates backend data processing, database management, and fron
 │   ├── run_etl.sh
 │   └── serve_frontend.sh
 └── tests/                            # Unit tests
-    ├── test_parse_xml.py
-    ├── test_clean_normalize.py
-    └── test_categorize.py
+│    ├── test_parse_xml.py
+│    ├── test_clean_normalize.py
+│    └── test_categorize.py
+└── database
+│    └── databse_setup.sql
+└── Examples
+      └── json_schemas.json
 
 ## Database Design and Implementation
 
