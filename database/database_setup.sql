@@ -52,3 +52,53 @@ CREATE TABLE System_Logs (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Log creation timestamp',
     CONSTRAINT fk_log_tx FOREIGN KEY (transaction_id) REFERENCES Transactions(transaction_id)
 );
+
+-- =======================================================
+-- SAMPLE DATA INSERTS
+-- =======================================================
+
+-- Insert into Users
+INSERT INTO User (name, phone_number) VALUES
+('Innocent Nkurunziza', '250791233547'),
+('Ishimwe Diane', '250790777734'),
+('Alex Robert', '250799200583'),
+('Cash Deposit Agent', '250795963036'),
+('System User', NULL);
+
+-- Insert into Categories
+INSERT INTO Transaction_Categories (name, description) VALUES
+('Deposit', 'Deposited money into account'),
+('Payment', 'Payment made to merchant'),
+('Transfer', 'Money transferred between accounts'),
+('Airtime', 'Airtime purchase'),
+('Other', 'Miscellaneous transactions');
+
+-- Insert into Transactions (sample from MoMo SMS)
+INSERT INTO Transactions (sender_id, receiver_id, category_id, TxId, amount, fee, balance, time, sms_body) VALUES
+(1, 2, 2, '76662021700', 2000.00, 0.00, 2000.00, '2024-05-10 16:30:51', 'You have received 2000 RWF...'),
+(1, 2, 2, '73214484437', 1000.00, 0.00, 1000.00, '2024-05-10 16:31:39', 'Your payment of 1,000 RWF...'),
+(1, 2, 2, '51732411227', 600.00, 0.00, 400.00, '2024-05-10 21:32:32', 'Your payment of 600 RWF...'),
+(4, 1, 1, '17818959211', 40000.00, 0.00, 40400.00, '2024-05-11 18:43:49', 'A bank deposit of 40000 RWF...'),
+(1, 3, 3, '82113964658', 3500.00, 0.00, 10880.00, '2024-05-12 13:34:25', 'Your payment of 3,500 RWF...');
+
+-- Insert into Transaction_Users
+INSERT INTO Transaction_Users (transaction_id, user_id, role) VALUES
+(1, 1, 'sender'),
+(1, 2, 'receiver'),
+(2, 1, 'sender'),
+(2, 2, 'receiver'),
+(3, 1, 'sender'),
+(3, 2, 'receiver'),
+(4, 4, 'sender'),
+(4, 1, 'receiver'),
+(5, 1, 'sender'),
+(5, 3, 'receiver');
+
+-- Insert into System Logs
+INSERT INTO System_Logs (transaction_id, log_type, message) VALUES
+(1, 'info', 'Transaction processed successfully'),
+(2, 'info', 'Transaction processed successfully'),
+(3, 'warning', 'Balance low after transaction'),
+(4, 'info', 'Deposit recorded'),
+(5, 'error', 'Delayed confirmation message');
+
