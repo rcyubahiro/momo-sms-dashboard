@@ -222,8 +222,8 @@ AI interactions logged in AI_USAGE_LOG.md
 📌 Deliverables
 ERD Diagram in  docs/erd_diagram.pdf
 
-SQL Setup Script: database/database_setup.sql
+SQL Setup Script in database/database_setup.sql
 
-JSON Examples: examples/json_schemas.json
+JSON Examples in examples/json_schemas.json
 
 Database Design Document (integrated here in README)
