@@ -54,7 +54,7 @@ CREATE TABLE System_Logs (
 );
 
 -- =======================================================
--- SAMPLE DATA INSERTS
+-- Initial data for development and testing
 -- =======================================================
 
 -- Insert into Users
