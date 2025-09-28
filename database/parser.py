@@ -37,7 +37,12 @@ def parse_xml_to_json(xml_file=XML_FILE, json_file=JSON_FILE):
     return transactions
 
 if __name__ == '__main__':
-    # You would need to ensure modified_sms_v2.xml is present or mock it
-    # For testing, you can create a mock file or assume it's there
-    # transactions_data = parse_xml_to_json()
-    print("Run this with the actual XML file to generate transactions.json")
+    # --- IMPORTANT CORRECTION ---
+    # Assume the XML file is 'modified_sms_v2.xml'
+    transactions_data = parse_xml_to_json(xml_file='modified_sms_v2.xml', json_file='examples/json_schemas.json')
+    
+    if transactions_data:
+        print(f"Success! {len(transactions_data)} records parsed and saved to transactions.json.")
+    else:
+        print("Parsing failed. Check if modified_sms_v2.xml exists in the current directory.")
+
