@@ -12,7 +12,7 @@ import random
 import json
 
 # --- Update this path to where your transactions.json was saved ---
-DATA_PATH = 'examples/json_schemas.json' 
+DATA_PATH = 'examples/jason_schemas.json' 
 # ----------------------------------------------------------------
 
 # Load the data
@@ -86,5 +86,6 @@ def run_comparison():
 
 if __name__ == '__main__':
     run_comparison()
+
 
 
