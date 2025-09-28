@@ -1,4 +1,4 @@
-# api/api_server.py
+x# api/api_server.py
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import base64
@@ -8,7 +8,7 @@ import os
 # Use a global variable to hold the in-memory database
 # In a real app, this would be a proper DB connection
 try:
-    with open('transactions.json', 'r') as f:
+    with open('examples/transactions.json', 'r') as f:
         TRANSACTIONS_LIST = json.load(f)
 except FileNotFoundError:
     print("Warning: transactions.json not found. Initializing with empty list.")
@@ -199,3 +199,4 @@ def run(server_class=HTTPServer, handler_class=MoMoAPIHandler, port=8080):
 if __name__ == '__main__':
     # Ensure you run parser.py first to create transactions.json
     run()
+
