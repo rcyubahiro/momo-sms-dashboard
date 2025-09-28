@@ -6,6 +6,24 @@ import json
 # The script only needs to load transactions.json.
 # from .parser import parse_xml_to_json
 
+# dsa/dsa_comparison.py (Updated Path)
+import time
+import random
+import json
+
+# --- Update this path to where your transactions.json was saved ---
+DATA_PATH = 'examples/json_schemas.json' 
+# ----------------------------------------------------------------
+
+# Load the data
+try:
+    with open(DATA_PATH, 'r') as f:
+        TRANSACTIONS_LIST = json.load(f)
+except FileNotFoundError:
+    print("FATAL: transactions.json not found. Run parser.py first.")
+    TRANSACTIONS_LIST = []
+
+# ... rest of the script
 # Load the data (you must run parser.py first)
 try:
     with open('transactions.json', 'r') as f:
@@ -68,4 +86,5 @@ def run_comparison():
 
 if __name__ == '__main__':
     run_comparison()
+
 
