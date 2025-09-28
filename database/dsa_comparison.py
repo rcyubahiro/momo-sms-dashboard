@@ -2,7 +2,9 @@
 import time
 import random
 import json
-from .parser import parse_xml_to_json # Assuming parser.py is in the same directory
+# Remove or comment out the line entirely if the transactions.json file is already created.
+# The script only needs to load transactions.json.
+# from .parser import parse_xml_to_json
 
 # Load the data (you must run parser.py first)
 try:
@@ -66,3 +68,4 @@ def run_comparison():
 
 if __name__ == '__main__':
     run_comparison()
+
