@@ -4,7 +4,7 @@ import json
 import os
 
 XML_FILE = 'modified_sms_v2.xml'
-JSON_FILE = 'examples/schemas.json'
+JSON_FILE = 'examples/json_schemas.json'
 
 def parse_xml_to_json(xml_file=XML_FILE, json_file=JSON_FILE):
     " Parses XML and converts to a list of JSON objects (list of dicts)."
@@ -45,5 +45,6 @@ if __name__ == '__main__':
         print(f"Success! {len(transactions_data)} records parsed and saved to transactions.json.")
     else:
         print("Parsing failed. Check if modified_sms_v2.xml exists in the current directory.")
+
 
 
