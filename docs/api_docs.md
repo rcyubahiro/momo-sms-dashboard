@@ -6,9 +6,10 @@
 2. Features   
 3. API Endpoints Overview
 4. Authentication & Security  
-5. Testing & Validation  
-6. Reflection on Basic Auth  
-7. Credits & Acknowledgements
+5. Testing & Validation
+6. Data Structures & Algorithms (DSA Integration)  
+7. Reflection on Basic Auth  
+8. Credits & Acknowledgements
 
 ---
 
@@ -30,7 +31,7 @@ This **MoMo SMS Transaction API** we created, allows clients or other developers
 
 ## 3. API ENDPOINTS Overview
 
-### GET /transactions
+### 3.1 GET /transactions
 
 Returns all transactions.
 
@@ -51,7 +52,7 @@ Returns all transactions.
 
 
 
-### GET /transactions/{id}
+### 3.2 GET /transactions/{id}
 
 Returns a specific transaction by ID.
 
@@ -74,7 +75,7 @@ Returns a specific transaction by ID.
 
 
 
-### POST /transactions
+### 3.3 POST /transactions
 
 Creates a new transaction.
 
@@ -103,7 +104,7 @@ Creates a new transaction.
 
 
 
-### PUT /transactions/{id}
+### 3.4 PUT /transactions/{id}
 
 Updates a transaction (e.g., amount).
 
@@ -128,7 +129,7 @@ Updates a transaction (e.g., amount).
 
 
 
-### DELETE /transactions/{id}
+### 3.5 DELETE /transactions/{id}
 
 Deletes a transaction.
 
@@ -191,18 +192,18 @@ Tested using **Postman**. Summary:
 
 To optimize the efficiency of retrieving transactions by ID, two different search approaches were implemented and evaluated:
 
-### Linear Search
+### 6.1 Linear Search
 - Iterates through each transaction in a list until a match is found.
 - **Time Complexity:** O(n)  
 - Suitable for small datasets but becomes slow as the number of records increases.
 
-### Dictionary Lookup
+### 6.2 Dictionary Lookup
 - Creates an index mapping each transaction's ID to its data using a dictionary.
 - **Time Complexity:** O(1) average case  
 - Significantly faster due to direct key access via hashing.
 
 
-### Performance Test (20+ Records)
+### 6.3 Performance Test (20+ Records)
 
 A benchmark was conducted with at least 20 transaction records. Each method was executed multiple times to compare their average time taken.
 
@@ -215,7 +216,7 @@ Dictionary lookup is approximately **10–15x faster** than linear search on ave
 
 
 
-### Reflection
+### 6.4 Reflection
 
 **Why is dictionary lookup faster?**  
 Because Python dictionaries are implemented as hash tables, allowing near-instant access to elements using keys. Linear search, on the other hand, must check each item one by one, making it less efficient as the dataset grows.
@@ -235,7 +236,7 @@ While **Basic Auth** is simple and easy to implement, it is:
 - Lacks token/session management  
 - Vulnerable to interception
 
-### Recommended Upgrade:
+### 7.1 Recommended Upgrade:
 
 - **JWT** for stateless sessions  
 - **OAuth 2.0** for delegated access
