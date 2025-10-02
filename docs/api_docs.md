@@ -46,7 +46,6 @@ Returns all transactions.
     "receiver": "998877665",
     "timestamp": "2024-09-27T08:30:00Z"
   },
-  ...
 ]
 ```
 
