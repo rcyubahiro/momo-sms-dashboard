@@ -1,0 +1,170 @@
+[
+    {
+        "id": 1,
+        "type": "Deposit",
+        "amount": 1500.0,
+        "sender": "123456789",
+        "receiver": "998877665",
+        "timestamp": "2024-09-27T08:30:00Z"
+    },
+    {
+        "id": 2,
+        "type": "Withdrawal",
+        "amount": 500.5,
+        "sender": "998877665",
+        "receiver": "123456789",
+        "timestamp": "2024-09-27T10:15:00Z"
+    },
+    {
+        "id": 3,
+        "type": "Payment",
+        "amount": 125.0,
+        "sender": "223344556",
+        "receiver": "776655443",
+        "timestamp": "2024-09-27T12:45:00Z"
+    },
+    {
+        "id": 4,
+        "type": "Transfer",
+        "amount": 2500.75,
+        "sender": "445566778",
+        "receiver": "112233445",
+        "timestamp": "2024-09-27T15:00:00Z"
+    },
+    {
+        "id": 5,
+        "type": "Deposit",
+        "amount": 300.0,
+        "sender": "556677889",
+        "receiver": "223344556",
+        "timestamp": "2024-09-27T16:30:00Z"
+    },
+    {
+        "id": 6,
+        "type": "Withdrawal",
+        "amount": 800.0,
+        "sender": "334455667",
+        "receiver": "445566778",
+        "timestamp": "2024-09-28T09:00:00Z"
+    },
+    {
+        "id": 7,
+        "type": "Payment",
+        "amount": 55.5,
+        "sender": "667788990",
+        "receiver": "556677889",
+        "timestamp": "2024-09-28T11:20:00Z"
+    },
+    {
+        "id": 8,
+        "type": "Transfer",
+        "amount": 1000.0,
+        "sender": "778899001",
+        "receiver": "667788990",
+        "timestamp": "2024-09-28T13:40:00Z"
+    },
+    {
+        "id": 9,
+        "type": "Deposit",
+        "amount": 4500.0,
+        "sender": "889900112",
+        "receiver": "778899001",
+        "timestamp": "2024-09-28T15:10:00Z"
+    },
+    {
+        "id": 10,
+        "type": "Withdrawal",
+        "amount": 120.0,
+        "sender": "990011223",
+        "receiver": "889900112",
+        "timestamp": "2024-09-28T17:55:00Z"
+    },
+    {
+        "id": 11,
+        "type": "Payment",
+        "amount": 35.99,
+        "sender": "112233445",
+        "receiver": "990011223",
+        "timestamp": "2024-09-29T08:05:00Z"
+    },
+    {
+        "id": 12,
+        "type": "Transfer",
+        "amount": 150.0,
+        "sender": "123456789",
+        "receiver": "223344556",
+        "timestamp": "2024-09-29T09:35:00Z"
+    },
+    {
+        "id": 13,
+        "type": "Deposit",
+        "amount": 50.0,
+        "sender": "334455667",
+        "receiver": "123456789",
+        "timestamp": "2024-09-29T11:00:00Z"
+    },
+    {
+        "id": 14,
+        "type": "Withdrawal",
+        "amount": 750.25,
+        "sender": "445566778",
+        "receiver": "334455667",
+        "timestamp": "2024-09-29T13:20:00Z"
+    },
+    {
+        "id": 15,
+        "type": "Payment",
+        "amount": 200.0,
+        "sender": "556677889",
+        "receiver": "445566778",
+        "timestamp": "2024-09-29T14:50:00Z"
+    },
+    {
+        "id": 16,
+        "type": "Transfer",
+        "amount": 3000.0,
+        "sender": "667788990",
+        "receiver": "556677889",
+        "timestamp": "2024-09-29T16:15:00Z"
+    },
+    {
+        "id": 17,
+        "type": "Deposit",
+        "amount": 99.99,
+        "sender": "778899001",
+        "receiver": "667788990",
+        "timestamp": "2024-09-29T17:40:00Z"
+    },
+    {
+        "id": 18,
+        "type": "Withdrawal",
+        "amount": 15.0,
+        "sender": "889900112",
+        "receiver": "778899001",
+        "timestamp": "2024-09-30T08:10:00Z"
+    },
+    {
+        "id": 19,
+        "type": "Payment",
+        "amount": 420.0,
+        "sender": "990011223",
+        "receiver": "889900112",
+        "timestamp": "2024-09-30T09:45:00Z"
+    },
+    {
+        "id": 20,
+        "type": "Transfer",
+        "amount": 650.0,
+        "sender": "112233445",
+        "receiver": "990011223",
+        "timestamp": "2024-09-30T11:30:00Z"
+    },
+    {
+        "id": 21,
+        "type": "Deposit",
+        "amount": 12000.0,
+        "sender": "223344556",
+        "receiver": "112233445",
+        "timestamp": "2024-09-30T13:50:00Z"
+    }
+]

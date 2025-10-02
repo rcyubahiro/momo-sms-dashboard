@@ -75,13 +75,13 @@ This project demonstrates backend data processing, database management, and fron
 
 # MoMo SMS Data Processing System
 
-## 📌 Overview
+##  Overview
 This project implements the **database foundation** for processing MoMo SMS transaction data.  
 It is designed to support data ingestion, storage, querying, and analysis of different types of mobile money transactions, while ensuring data integrity, security, and scalability.
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 docs/erd_diagram.png # ERD diagram (exported from draw.io / Lucidchart)
 database/database_setup.sql # MySQL schema with sample data
 examples/json_schemas.json # JSON serialization examples
@@ -89,7 +89,7 @@ README.md # Database documentation (this file)
 
 ---
 
-## 🗂️ Entity Relationship Diagram (ERD)
+##  Entity Relationship Diagram (ERD)
 The database schema includes five main entities:
 
 - **Users** – stores customer, merchant, and agent information  
@@ -116,7 +116,7 @@ The design balances normalization for consistency with performance needs, suppor
 
 ---
 
-## 📑 Data Dictionary (Summary)
+##  Data Dictionary (Summary)
 
 | Table                     | Column              | Type            | Description                                               |
 |----------------------------|---------------------|-----------------|-----------------------------------------------------------|
@@ -179,7 +179,7 @@ Transaction JSON
 
 Full Transaction JSON (with sender, receiver, categories)
 
-✅ Sample Queries
+ Sample Queries
 Get completed transactions
 
 
@@ -227,3 +227,7 @@ SQL Setup Script in database/database_setup.sql
 JSON Examples in examples/json_schemas.json
 
 Database Design Document (integrated here in README)
+
+here is more about our database and how it works in the following document
+[![Database Design Document]("https://github.com/user-attachments/assets/687b754c-3ad1-4839-a966-fe95bed78b67")](./docs/Database_Design.pdf)
+
